@@ -17,14 +17,15 @@ public class ApigeeApplication {
 	private String GET_PRODUCTS_OFFER_URL;
 
 	@Bean
-	public RouteLocator myRoutes(RouteLocatorBuilder builder) {
-		return builder
-				.routes()
+	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
+		//@formatter:off
+		return builder.routes()
 				.route(p -> p.path("/orders")
 						.uri(GET_ORDERS_URL))
 				.route(p -> p.path("/products")
 						.uri(GET_PRODUCTS_OFFER_URL))
 				.build();
+		//@formatter:on
 	}
 
 	public static void main(String[] args) {
